@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Upload Geopolitical Risk for Supplier: {{ supplier.name }}</h2>
+    <form action="{{ url_for('upload_geopolitical', supplier_id=supplier.id) }}" method="post">
+        <div class="form-group">
+            <label for="risk_description">Risk Description</label>
+            <textarea class="form-control" id="risk_description" name="risk_description" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+{% endblock %}

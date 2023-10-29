@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Dashboard</h2>
+
+<h3>Manufacturers</h3>
+<ul>
+    {% for m in manufacturers %}
+        <li>{{ m.name }} - {{ m.contact_info }}</li>
+    {% endfor %}
+</ul>
+
+<h3>Suppliers</h3>
+<ul>
+    {% for s in suppliers %}
+        <li>{{ s.name }} - Risk Rating: {{ s.risk_rating }}</li>
+    {% endfor %}
+</ul>
+
+<h3>Projects</h3>
+<ul>
+    {% for p in projects %}
+        <li>{{ p.name }} - Status: {{ p.status }}</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

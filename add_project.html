@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Project</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container mt-5">
+    <h2>Add New Project</h2>
+    <form action="{{ url_for('add_project') }}" method="post" class="mt-4">
+        <div class="form-group">
+            <label for="project_name">Project Name:</label>
+            <input type="text" class="form-control" id="project_name" name="project_name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="manufacturer_id">Select Manufacturer:</label>
+            <select class="form-control" id="manufacturer_id" name="manufacturer_id">
+                {% for manufacturer in manufacturers %}
+                    <option value="{{ manufacturer.id }}">{{ manufacturer.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="scope1_emission">Scope 1 Emission:</label>
+            <input type="number" step="0.01" class="form-control" id="scope1_emission" name="scope1_emission">
+        </div>
+
+        <div class="form-group">
+            <label for="scope2_emission">Scope 2 Emission:</label>
+            <input type="number" step="0.01" class="form-control" id="scope2_emission" name="scope2_emission">
+        </div>
+
+        <div class="form-group">
+            <label for="scope3_emission">Scope 3 Emission:</label>
+            <input type="number" step="0.01" class="form-control" id="scope3_emission" name="scope3_emission">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Add Project</button>
+    </form>
+</div>
+
+<!-- Bootstrap JS and jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

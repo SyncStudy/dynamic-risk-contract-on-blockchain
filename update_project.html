@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Project</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container mt-5">
+    <h2>Update Project Details</h2>
+
+    <form action="{{ url_for('update_project', id=project.id) }}" method="post" class="mt-4">
+        <div class="form-group">
+            <label for="name">Project Name</label>
+            <input type="text" class="form-control" name="name" id="name" value="{{ project.name }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="manufacturer_id">Manufacturer</label>
+            <select class="form-control" name="manufacturer_id" id="manufacturer_id">
+                {% for manufacturer in manufacturers %}
+                    <option value="{{ manufacturer.id }}" {% if manufacturer.id == project.manufacturer_id %} selected {% endif %}>{{ manufacturer.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+</div>
+
+<!-- Bootstrap JS and jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

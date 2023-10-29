@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Occupation</title>
+    <!-- Include Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Supplier Occupation Data</h2>
+
+        <!-- Display Occupation Rate using Bootstrap's progress bar -->
+        <h4>Occupation Rate</h4>
+        <div class="progress mb-3">
+            <div class="progress-bar" role="progressbar" style="width: {{ data.occupation_rate[0] }}%;" aria-valuenow="{{ data.occupation_rate[0] }}" aria-valuemin="0" aria-valuemax="100">
+                {{ data.occupation_rate[0] }}%
+            </div>
+        </div>
+
+        <!-- Display Facing Blocks status using Bootstrap's alert component -->
+        <h4>Facing Blocks</h4>
+        {% if data.facing_blocks[0] == 1 %}
+            <div class="alert alert-danger" role="alert">
+                Supplier is facing blocks.
+            </div>
+        {% else %}
+            <div class="alert alert-success" role="alert">
+                Supplier is not facing blocks.
+            </div>
+        {% endif %}
+
+        <!-- Display Checkpoint -->
+        <h4>Checkpoint: {{ data.checkpoint }}</h4>
+    </div>
+
+    <!-- Include Bootstrap JS (optional) -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

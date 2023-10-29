@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Add Supplier</h2>
+    {% if error %}
+    <div class="alert alert-danger">
+        {{ error }}
+    </div>
+{% endif %}
+<form action="{{ url_for('add_supplier') }}" method="post">
+    <label for="name">Name:</label>
+    <input type="text" name="name" required><br>
+    <label for="address">Address:</label>
+    <input type="text" name="address"><br>
+    <label for="contact_info">Contact Info:</label>
+    <input type="text" name="contact_info"><br>
+    <label for="risk_rating">Risk Rating (1-10):</label>
+    <input type="number" name="risk_rating" min="1" max="10" required><br>
+    <input type="submit" value="Add Supplier">
+</form>
+{% endblock %}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>Geopolitical Risks</title>
+</head>
+<body>
+
+<div class="container mt-5">
+    <h2 class="mb-3">View Regional and Geopolitical Indicators</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Supplier Name</th>
+                <th>Risk Description</th>
+                <th>Timestamp</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for supplier in suppliers %}
+                {% for risk in supplier.geopolitical_risks %}
+                    <tr>
+                        <td>{{ supplier.name }}</td>
+                        <td>{{ risk.description }}</td>
+                        <td>{{ risk.timestamp }}</td>
+                    </tr>
+                {% endfor %}
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
